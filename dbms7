@@ -1,0 +1,33 @@
+create table Emp_Himanshu(
+EmpId varchar2(3) ,
+Ename varchar2(25) not null,
+DOB date not null,
+DOJ date not null ,
+Salary number(7) not null ,
+check(EmpId like'E%'),
+check(DOJ>DOB),
+check(Salary>0),
+constraint emp_pk primary key (EmpId)
+);
+
+select * from Emp_Himanshu;
+
+desc Emp_Himanshu;
+
+insert into Emp_Himanshu 
+values('E04','karan','11-jul-1993','30-jan-2010',2960);
+
+select * from Emp_Himanshu where DOJ='14-dec-2009';
+
+select EmpId,Ename,DOB,to_char (DOJ,'MONTH DD, YYYY'),Salary from Emp_Himanshu;
+
+select * from Emp_Himanshu where DOJ<('01-jan-2018');
+
+select * from Emp_Himanshu where to_char(DOJ,'mon')='jan';
+
+select * from Emp_Himanshu where to_char(DOJ,'year')=2019;
+
+select * from Emp_Himanshu order by DOJ desc;
+
+select * from Emp_Himanshu mod(Salary,2)=1;
+
